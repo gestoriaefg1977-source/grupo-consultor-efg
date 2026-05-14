@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Consultor EFG - Soluciones que Impulsan tu Negocio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #C5A028;
+            --gold-light: #D4B84A;
+            --gold-dark: #A08020;
+            --navy: #0B1C2E;
+            --navy-light: #142536;
+            --navy-dark: #060F1A;
+            --white: #FFFFFF;
+            --gray: #F5F5F5;
+            --text-dark: #1A1A1A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 12px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 8px 0;
+            background: rgba(11, 28, 46, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid rgba(255,255,255,0.2);
+            box-shadow: 0 0 20px rgba(197, 160, 40, 0.3);
+        }
+
+        .logo-circle span {
+            color: var(--navy);
+            font-weight: 900;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .logo-text h1 {
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .header-badges {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--white);
+            font-size: 11px;
+        }
+
+        .badge i {
+            color: var(--gold);
+            font-size: 18px;
+        }
+
+        .badge-text strong {
+            display: block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+        }
+
+        .year-badge {
+            text-align: right;
+            color: var(--white);
+        }
+
+        .year-badge small {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .year-badge .year {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* ===== HERO CON IMAGEN DE FONDO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(11, 28, 46, 0.92) 0%, rgba(11, 28, 46, 0.85) 50%, rgba(6, 15, 26, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80');
+            background-size: cover;
+            background-position: center right;
+            opacity: 0.12;
+            z-index: 1;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h2 {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hero-content h2::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            max-width: 80px;
+        }
+
+        .hero-content h1 {
+            color: var(--white);
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-content .subtitle {
+            color: var(--gold);
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .hero-content p {
+            color: rgba(255,255,255,0.75);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(197, 160, 40, 0.25);
+            border-radius: 12px;
+            padding: 22px 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-card:hover {
+            background: rgba(197, 160, 40, 0.12);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(197, 160, 40, 0.2);
+        }
+
+        .feature-card i {
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.5);
+            font-size: 11px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* ===== FORM SECTION ===== */
+        .form-section {
+            background: rgba(11, 28, 46, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 160, 40, 0.3);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        .form-section h3 {
+            color: var(--gold);
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.6);
+            font-size: 12px;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .form-group label i {
+            color: var(--gold);
+            font-size: 13px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255,255,255,0.06);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 0 20px rgba(197, 160, 40, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .whatsapp-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border: none;
+            border-radius: 12px;
+            color: var(--navy);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(197, 160, 40, 0.3);
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(197, 160, 40, 0.5);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+        }
+
+        .whatsapp-btn i {
+            font-size: 18px;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: rgba(255,255,255,0.4);
+            font-size: 11px;
+        }
+
+        .form-footer i {
+            color: var(--gold);
+        }
+
+        /* ===== SERVICES CON IMAGEN DE FONDO ===== */
+        .services {
+            padding: 80px 0;
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(245,245,245,0.95) 0%, rgba(245,245,245,0.9) 100%);
+            z-index: 1;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h4 {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            color: var(--navy);
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 18px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 30px 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border-color: var(--gold);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(197, 160, 40, 0.1) 0%, rgba(197, 160, 40, 0.05) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            border: 2px solid rgba(197, 160, 40, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border-color: var(--gold);
+        }
+
+        .service-icon i {
+            font-size: 24px;
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon i {
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            color: var(--navy);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* ===== STATS ===== */
+        .stats {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            padding: 70px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.06;
+            mix-blend-mode: overlay;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-text h2 {
+            color: var(--white);
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .stats-text p {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px 15px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 14px;
+            border: 1px solid rgba(197, 160, 40, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(197, 160, 40, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .stat-item i {
+            font-size: 32px;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .stat-item h3 {
+            color: var(--white);
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .stat-item p {
+            color: rgba(255,255,255,0.6);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+            padding: 70px 0 25px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .footer-content h4 {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .footer-content h2 {
+            color: var(--white);
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            width: 38px;
+            height: 38px;
+            background: rgba(197, 160, 40, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 14px;
+            border: 1px solid rgba(197, 160, 40, 0.2);
+        }
+
+        .footer-image {
+            position: relative;
+        }
+
+        .footer-brand {
+            background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 100%);
+            border-radius: 16px;
+            padding: 35px;
+            text-align: center;
+            border: 1px solid rgba(197, 160, 40, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .footer-brand .logo-circle {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 18px;
+        }
+
+        .footer-brand .logo-circle span {
+            font-size: 18px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+        }
+
+        .social-links {
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            background: rgba(197, 160, 40, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            border: 1px solid rgba(197, 160, 40, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding: 18px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+        }
+
+        .copyright i {
+            color: var(--gold);
+            margin-right: 5px;
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 26px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 5px 30px rgba(37, 211, 102, 0.7); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+            .stats-container { grid-template-columns: 1fr; text-align: center; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .header-badges { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero-container { grid-template-columns: 1fr; gap: 35px; }
+            .hero-content h1 { font-size: 32px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .footer-container { grid-template-columns: 1fr; gap: 35px; }
+            .floating-whatsapp { bottom: 18px; right: 18px; width: 50px; height: 50px; font-size: 22px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 90px 0 50px; }
+            .hero-content h1 { font-size: 24px; }
+            .form-section { padding: 22px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 22px; }
+            .stats-text h2 { font-size: 22px; }
+            .footer-content h2 { font-size: 22px; }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <span>GCE</span>
+                </div>
+                <div class="logo-text">
+                    <h1>Grupo Consultor</h1>
+                    <span>EFG</span>
+                </div>
+            </div>
+            
+            <div class="header-badges">
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="badge-text">
+                        <strong>Experiencia</strong>
+                        Desde 2002
+                    </div>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-users"></i>
+                    <div class="badge-text">
+                        <strong>Atención</strong>
+                        Personalizada
+                    </div>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="badge-text">
+                        <strong>Soluciones</strong>
+                        Efectivas
+                    </div>
+                </div>
+            </div>
+            
+            <div class="year-badge">
+                <small>Gestionamos desde</small>
+                <div class="year">2002</div>
+            </div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section con imagen de fondo -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h2>Soluciones</h2>
+                <h1>Que Impulsan <span class="highlight">Tu Negocio</span></h1>
+                <div class="subtitle">Expertos en Gestión y Regularización</div>
+                <p>Gestionamos tus trámites municipales, estatales y ante entidades gubernamentales y continuas para que tú te enfoques en lo más importante: hacer crecer tu negocio.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Transparencia y Honestidad</h3>
+                        <p>Actuamos con claridad y honestidad en cada proceso.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Trámites Más Rápidos</h3>
+                        <p>Optimizamos tiempos para mejores resultados.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Acompañamiento Personalizado</h3>
+                        <p>Te guiamos en cada paso hasta la resolución.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section fade-in">
+                <h3>Háblanos de los trámites que quieres realizar</h3>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Nombre completo</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre completo">
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Correo electrónico</label>
+                    <input type="email" id="email" placeholder="tu@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Teléfono</label>
+                    <input type="tel" id="telefono" placeholder="Tu número de teléfono">
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-edit"></i> Cuéntanos tu trámite o proyecto</label>
+                    <textarea id="mensaje" placeholder="Describe el trámite o proyecto que necesitas gestionar..."></textarea>
+                </div>
+                
+                <a href="#" class="whatsapp-btn" id="whatsappBtn" onclick="enviarWhatsApp(event)">
+                    <i class="fab fa-whatsapp"></i>
+                    Enviar Mensaje
+                </a>
+                
+                <div class="form-footer">
+                    <i class="fas fa-lock"></i>
+                    Tu información está protegida y será tratada de forma confidencial.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section con imagen de fondo -->
+    <section class="services">
+        <div class="services-container">
+            <div class="section-header fade-in">
+                <h4>Nuestros Servicios</h4>
+                <h2>Gestionamos lo que necesitas,<br>para que avances sin obstáculos.</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Regularización de predios</h3>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Permisos municipales</h3>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-wine-bottle"></i>
+                    </div>
+                    <h3>Licencias de alcohol</h3>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Protección Civil</h3>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>COFEPRIS</h3>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>SAT y e.firma</h3>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Uso de suelo</h3>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>Planos y gestoría</h3>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Apertura de negocios</h3>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Vo.Bo. municipales</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stats-text fade-in">
+                <h2>Experiencia, Compromiso y Resultados.</h2>
+                <p>Transformamos trámites en soluciones para que tu negocio avance sin límites.</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <i class="fas fa-tasks"></i>
+                    <h3>+500</h3>
+                    <p>Trámites realizados con éxito</p>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <i class="fas fa-smile"></i>
+                    <h3>+300</h3>
+                    <p>Clientes satisfechos</p>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <i class="fas fa-award"></i>
+                    <h3>24+</h3>
+                    <p>Años de experiencia en el sector</p>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <i class="fas fa-percentage"></i>
+                    <h3>98%</h3>
+                    <p>Tasa de satisfacción de nuestros clientes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content fade-in">
+                <h4>Estamos para ayudarte</h4>
+                <h2>Hablemos de tu proyecto y encontremos la mejor solución.</h2>
+                
+                <div class="contact-info">
+                    <a href="tel:8119530718" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Tel: 811 953 0718</span>
+                    </a>
+                    
+                    <a href="https://wa.me/528143910283" target="_blank" class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Tel: 814 391 0283</span>
+                    </a>
+                    
+                    <a href="mailto:gestriaefg1977@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Correo: gestriaefg1977@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-image fade-in">
+                <div class="footer-brand">
+                    <div class="logo-circle">
+                        <span>GCE</span>
+                    </div>
+                    <h3>Grupo Consultor EFG</h3>
+                    <p>Tu aliado en gestión y regularización desde 2002</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/528143910283" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:gestriaefg1977@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <i class="far fa-copyright"></i> 2002 Grupo Consultor EFG. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/528143910283" target="_blank" class="floating-whatsapp" title="Contáctanos por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // WhatsApp integration - VINCULADO A 814 391 0283
+        function enviarWhatsApp(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+            
+            let texto = '*Nuevo mensaje desde la web de Grupo Consultor EFG*%0A%0A';
+            
+            if (nombre) texto += '*Nombre:* ' + nombre + '%0A';
+            if (email) texto += '*Email:* ' + email + '%0A';
+            if (telefono) texto += '*Teléfono:* ' + telefono + '%0A';
+            if (mensaje) texto += '%0A*Mensaje:*%0A' + mensaje;
+            
+            if (!nombre && !email && !telefono && !mensaje) {
+                texto = '*Hola, me interesan los servicios de Grupo Consultor EFG*';
+            }
+            
+            // NÚMERO VINCULADO: 814 391 0283
+            const url = 'https://wa.me/528143910283?text=' + texto;
+            window.open(url, '_blank');
+        }
+
+        // Mobile menu
+        function toggleMenu() {
+            const badges = document.querySelector('.header-badges');
+            const current = badges.style.display;
+            badges.style.display = current === 'flex' ? 'none' : 'flex';
+            if (current !== 'flex') {
+                badges.style.position = 'absolute';
+                badges.style.top = '65px';
+                badges.style.left = '0';
+                badges.style.right = '0';
+                badges.style.background = 'var(--navy)';
+                badges.style.flexDirection = 'column';
+                badges.style.padding = '18px';
+                badges.style.gap = '12px';
+                badges.style.zIndex = '999';
+                badges.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+            }
+        }
+    </script>
+
+</body>
+</html>
